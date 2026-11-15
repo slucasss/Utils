@@ -1,3 +1,3 @@
 add_executable(App src/main.cpp)
 
-target_link_libraries(App PRIVATE Maths Debug Utils)
+target_link_libraries(App PRIVATE UtilsLib)

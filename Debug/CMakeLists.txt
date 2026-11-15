@@ -1,4 +1,4 @@
-add_library(Debug STATIC 
+add_library(Debug OBJECT 
 src/Debug.cpp 
 include/Debug.h
 )

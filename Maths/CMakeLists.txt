@@ -8,7 +8,7 @@ set(MATHS_SOURCES
 src/Vector3.cpp 
 )
 
-add_library(Maths STATIC 
+add_library(Maths OBJECT 
 ${MATHS_HEADERS}
 ${MATHS_SOURCES}
 )

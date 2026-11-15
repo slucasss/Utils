@@ -1,4 +1,4 @@
-add_library(Utils STATIC 
+add_library(Utils OBJECT 
 src/Utils.cpp 
 include/Utils.h
 )
