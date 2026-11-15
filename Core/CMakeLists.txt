@@ -1,5 +1,6 @@
 set(CORE_HEADERS 
 include/Core.h
+include/PrimitiveTypes.h
 )
 
 set(CORE_SOURCES 

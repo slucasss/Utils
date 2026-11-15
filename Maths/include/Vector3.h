@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Core.h"
 
 // Templated vector2 struct
 template <typename T>
@@ -42,9 +42,9 @@ struct Vector3
 
 #include "Vector3.inl"
 
-
-using Vector3f = Vector3<float>;
-using Vector3i = Vector3<int>;
-using Vector3d = Vector3<double>;
+using Vector3f	= Vector3<float32>;
+using Vector3d	= Vector3<float64>;
+using Vector3i	= Vector3<int32>;
+using Vector3ui = Vector3<uint32>;
 
 
