@@ -2,11 +2,13 @@ set(DEBUG_HEADERS
 include/Debug.h
 include/Assert.h
 include/Profiler.h
+include/MemoryLeakDetector.h
 )
 
 set(DEBUG_SOURCES
 src/Debug.cpp
 src/Profiler.cpp
+src/MemoryLeakDetector.cpp
 )
 
 add_library(Debug OBJECT 

@@ -9,6 +9,8 @@ int main() {
 	std::cout << data << std::endl;
 	data += data;
 	std::cout << data << std::endl;
+	
+	int32* test = new int32;
 
 	PROFILER_END_TASK_SECONDS("test1", "");
 
