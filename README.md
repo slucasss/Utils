@@ -5,9 +5,8 @@ A library full of usefull things
 
 ## TODO
 ### Debug
-- Profiler
 - Assert
-- Memory leak detector (using "using new" when _DEBUG is defined)
+- Memory leak detector
 
 ### Maths
 - Matric
