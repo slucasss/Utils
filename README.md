@@ -1,13 +1,13 @@
 # Utils
-A library full of useful things
+A library full of usefull things
 
 
 
 ## TODO
 ### Debug
-- Profiller
+- Profiler
 - Assert
-- Memory leak detector (using "using new" when _DEBUG is defines)
+- Memory leak detector (using "using new" when _DEBUG is defined)
 
 ### Maths
 - Matric
