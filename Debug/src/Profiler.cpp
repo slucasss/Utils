@@ -10,8 +10,9 @@ void Profiler::AddTask(const std::string& taskName)
 #endif	
 		return;
 	}
-
-	m_tasks[taskName] = Task{taskName};
+	Task task;
+	task.name = taskName;
+	m_tasks[taskName] = task;
 	std::cout << taskName << std::endl;
 }
 
@@ -28,20 +29,24 @@ void Profiler::EndTask(const std::string& taskName, const std::string& message, 
 
 	std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
 	std::chrono::steady_clock::time_point& begin = m_tasks[taskName].begin;
-	long long duration = 0;
+	float64 duration = 0.0f;
 	std::string unitMsg = "";
 
 	switch (unit) {
 	case Units::Seconds:
-		duration = std::chrono::duration_cast<std::chrono::seconds>(end - begin).count();
+		duration = std::chrono::duration<double>(end - begin).count();
 		unitMsg = "seconds";
 		break;
 	case Units::MilliSeconds:
-		duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+		duration = std::chrono::duration<double, std::milli>(end - begin).count();
 		unitMsg = "milliseconds";
 		break;
+	case Units::MicroSeconds:
+		duration = std::chrono::duration<double, std::micro>(end - begin).count();
+		unitMsg = "micrseconds";
+		break;
 	case Units::NanoSeconds:
-		duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
+		duration = std::chrono::duration<double, std::nano>(end - begin).count();
 		unitMsg = "nanoseconds";
 		break;
 	}

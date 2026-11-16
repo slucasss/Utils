@@ -10,6 +10,7 @@
 #define PROFILER_END_TASK(taskName, message, unit) Profiler::EndTask(taskName, message, unit);
 #define PROFILER_END_TASK_SECONDS(taskName, message) Profiler::EndTask(taskName, message, Profiler::Units::Seconds);
 #define PROFILER_END_TASK_MILLISECONDS(taskName, message)Profiler::EndTask(taskName, message, Profiler::Units::MilliSeconds);
+#define PROFILER_END_TASK_MICROSECONDS(taskName, message)Profiler::EndTask(taskName, message, Profiler::Units::MicroSeconds);
 #define PROFILER_END_TASK_NANOSECONDS(taskName, message)Profiler::EndTask(taskName, message, Profiler::Units::NanoSeconds);
 
 class Profiler
@@ -31,6 +32,7 @@ public:
 	enum class Units {
 		Seconds,
 		MilliSeconds,
+		MicroSeconds,
 		NanoSeconds
 	};
 
