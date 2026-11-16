@@ -9,14 +9,13 @@ A library full of usefull things
 - Memory leak detector
 
 ### Maths
-- Matric
+- Matrix
 - Quaternion
 - Collision
 - Transformation
 - Parenting
 
 ### Core
-- primitive types
 - others units (degrees, radians)
 
 ### Utils
