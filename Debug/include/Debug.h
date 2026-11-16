@@ -1,2 +1,3 @@
 #pragma once
-#include "Debug.h"
+#include "Assert.h"
+#include "Profiler.h"

@@ -5,8 +5,9 @@ A library full of useful things
 
 ## TODO
 ### Debug
-- Partionner
+- Profiller
 - Assert
+- Memory leak detector (using "using new" when _DEBUG is defines)
 
 ### Maths
 - Matric
@@ -20,6 +21,8 @@ A library full of useful things
 - others units (degrees, radians)
 
 ### Utils
+- Parsertxt
+
 
 
 

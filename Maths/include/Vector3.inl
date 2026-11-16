@@ -1,19 +1,21 @@
 #include "Vector3.h"
 #include <iostream>
 
+
+
 template <typename T>
 Vector3<T> Vector3<T>::operator+ (const T& _right) const {
-	return{ x + _right, y + _right, z + _right }
+	return{ x + _right, y + _right, z + _right };
 }
 
 template <typename T>
 Vector3<T> Vector3<T>::operator- (const T& _right) const {
-	return{ x - _right, y - _right, z - _right }
+	return{ x - _right, y - _right, z - _right };
 }
 
 template <typename T>
 Vector3<T> Vector3<T>::operator* (const T& _right) const {
-	return{ x * _right, y * _right, z * _right }
+	return{ x * _right, y * _right, z * _right };
 }
 
 template <typename T>
@@ -22,7 +24,7 @@ Vector3<T> Vector3<T>::operator/ (const T& _right) const {
 		"invalid division by 0";
 		return{ x, y, z };
 	}
-	return{ x / _right, y / _right, z + _right }
+	return{ x / _right, y / _right, z + _right };
 }
 
 
@@ -145,13 +147,26 @@ inline float Vector3<T>::Lenght() const
 template<typename T>
 inline float Vector3<T>::LenghtSqrt() const
 {
-	return (x*x)+(y*y)+(z*z)
+	return { (*this) * (*this) };
 }
 
 template<typename T>
 inline Vector3<T> Vector3<T>::Normalize() const
 {
-	const float lenght = Lenght();
-	const float fracLenght = 1 / lenght;
-	return( x * fracLenght, y * fracLenght, z * fracLenght);
+	const float32 lenght = Lenght();
+	const float32 fracLenght = 1.0f / lenght;
+	return((*this) * fracLenght);
 }
+
+template<typename T>
+inline float Vector3<T>::Dot(const Vector3<T>& second) const
+{
+	return (x * second.x) + (y * second.y) + (z * second.z);
+}
+
+template <typename T>
+inline std::ostream& operator<<(std::ostream& os, const Vector3<T>& data)
+{
+	os << "x : " << data.x << "; y : " << data.y << "; z : " << data.z;
+	return os;
+}	
