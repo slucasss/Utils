@@ -7,11 +7,13 @@ A library full of usefull things
 ### Debug
 - Assert
 - Memory leak detector
+- Linear allocator
+- StringId (string hashing for tests)
 
 ### Maths
 - Matrix
 - Quaternion
-- Collision
+- 3D Collision
 - Transformation
 - Parenting
 
@@ -20,6 +22,9 @@ A library full of usefull things
 
 ### Utils
 - Parsertxt
+
+### Optimisation
+- templated quadtree
 
 
 
