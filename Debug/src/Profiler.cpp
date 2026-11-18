@@ -13,7 +13,6 @@ void Profiler::AddTask(const std::string& taskName)
 	Task task;
 	task.name = taskName;
 	m_tasks[taskName] = task;
-	std::cout << taskName << std::endl;
 }
 
 void Profiler::EndTask(const std::string& taskName, const std::string& message, Units unit)
@@ -43,7 +42,7 @@ void Profiler::EndTask(const std::string& taskName, const std::string& message, 
 		break;
 	case Units::MicroSeconds:
 		duration = std::chrono::duration<double, std::micro>(end - begin).count();
-		unitMsg = "micrseconds";
+		unitMsg = "microseconds";
 		break;
 	case Units::NanoSeconds:
 		duration = std::chrono::duration<double, std::nano>(end - begin).count();
