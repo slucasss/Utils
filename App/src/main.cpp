@@ -10,6 +10,11 @@ int main() {
 	std::cout << data << std::endl;
 	data += data;
 	std::cout << data << std::endl;
+
+	float32 size = data.Lenght();
+	std::cout << size << std::endl;
+
+	std::cout << data.Normalize() << std::endl;
 	
 	PROFILER_END_TASK_MILLISECONDS("vector", "");
 
@@ -17,13 +22,19 @@ int main() {
 
 	PROFILER_ADD_TASK("matrix");
 
-	Matrixf matrix;
-	matrix.Init(3, 3);
-	std::cout << matrix << std::endl;
+	Matrixf matrix1(2, 3);
+	Matrixf matrix2(3, 2);
 	
-	matrix[1][0] = 12.0f;
+	matrix1[1][0] = 12.0f;
+	matrix2[0][1] = 14.0f;
 
-	std::cout << matrix;
+	Matrixf matrixMult = matrix1 * matrix2;
+
+	std::cout << matrix1 << std::endl;
+	std::cout << matrix2 << std::endl;
+	std::cout << matrixMult << std::endl;
+
+
 
 	PROFILER_END_TASK_MILLISECONDS("matrix", "");
 

@@ -15,22 +15,28 @@ template <typename T>
 class Matrix
 {
 	std::vector<std::vector<T>> m_matrix;
-	int16 m_row = 0;
-	int16 m_col = 0;
+	const int16 m_row;
+	const int16 m_col;
 
 public:
-	Matrix() = default;
-	void Init(int16 row, int16 col, bool identity = true);
+	Matrix(int16 row, int16 col);
 
 
-	std::vector<T>& operator[] (int16 col) const;
-	std::vector<T>& operator[] (int16 col);
+	std::vector<T>& operator[] (int16 row) const noexcept;
+	std::vector<T>& operator[] (int16 row) noexcept;
+
+	Matrix<T> operator+ (const Matrix<T>& other) const noexcept;
+	Matrix<T> operator- (const Matrix<T>& other) const noexcept;
+	Matrix<T> operator* (const Matrix<T>& other) const noexcept;
+	
+	void operator+= (const Matrix<T>& other) noexcept;
+	void operator-= (const Matrix<T>& other) noexcept;
+
+	bool IsSquare() const noexcept;
+
 
 	friend std::ostream& operator<< <>(std::ostream& os, const Matrix<T>& data);
-	
-	Matrix<T> operator+ (const Matrix<T>& other) const;
-
-	friend Matrix<T>
+	friend Matrix<T>;
 };
 
 #include "Matrix.inl"
