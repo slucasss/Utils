@@ -22,18 +22,27 @@ public:
 	Matrix(int16 row, int16 col);
 
 
-	std::vector<T>& operator[] (int16 row) const noexcept;
 	std::vector<T>& operator[] (int16 row) noexcept;
 
 	Matrix<T> operator+ (const Matrix<T>& other) const noexcept;
 	Matrix<T> operator- (const Matrix<T>& other) const noexcept;
 	Matrix<T> operator* (const Matrix<T>& other) const noexcept;
+	Matrix<T> operator/ (const Matrix<T>& other) const noexcept;
+
+	Matrix<T> operator+ (const T& other) const noexcept;
+	Matrix<T> operator- (const T& other) const noexcept;
+	Matrix<T> operator* (const T& other) const noexcept;
 	
 	void operator+= (const Matrix<T>& other) noexcept;
 	void operator-= (const Matrix<T>& other) noexcept;
 
+	bool operator==(const Matrix<T>& other) const noexcept;
+
 	bool IsSquare() const noexcept;
 
+	float GetDet() const noexcept;
+
+	Matrix<T> GetInvert() const noexcept;
 
 	friend std::ostream& operator<< <>(std::ostream& os, const Matrix<T>& data);
 	friend Matrix<T>;

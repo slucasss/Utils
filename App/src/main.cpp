@@ -22,17 +22,19 @@ int main() {
 
 	PROFILER_ADD_TASK("matrix");
 
-	Matrixf matrix1(2, 3);
-	Matrixf matrix2(3, 2);
+	Matrixf matrix1(2, 2);
+	Matrixf matrix2(2, 2);
 	
 	matrix1[1][0] = 12.0f;
-	matrix2[0][1] = 14.0f;
+	matrix1[0][1] = 8.0f;
+	matrix1[0][0] = 123.0f;
+	matrix1[1][1] = 14.0f;
 
-	Matrixf matrixMult = matrix1 * matrix2;
+	Matrixf identityMatrix = matrix1 / matrix1;
 
 	std::cout << matrix1 << std::endl;
-	std::cout << matrix2 << std::endl;
-	std::cout << matrixMult << std::endl;
+	//std::cout << matrix2 << std::endl;
+	std::cout << identityMatrix << std::endl;
 
 
 
