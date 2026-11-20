@@ -15,8 +15,11 @@ A library full of usefull things
 
 ## TODO
 ### Debug
-- Assert
+- Assert / Verify
 - Memory leak detector
+- Crash handler
+- Logger
+
 
 ### Maths
 - Quaternion
@@ -34,7 +37,7 @@ A library full of usefull things
 ### Optimisation
 - templated quadtree / Octree (3D)
 - Linear allocator (create a pool to avoid new when creating new textures. Can't free in it, the pool is cleared every update)
-
+- Multi-threader
 
 
 
