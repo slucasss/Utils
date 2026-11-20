@@ -44,6 +44,8 @@ public:
 
 	bool operator==  (const Vector3<T>& _right) const noexcept;
 
+	T operator[] (const int8& it) const noexcept;
+
 	float Lenght() const noexcept;
 	float LenghtSqrt() const noexcept;
 	Vector3<float32> Normalize() const noexcept;

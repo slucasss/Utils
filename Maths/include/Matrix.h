@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "Core.h"
+#include "Vector3.h"
+#include "Units.h"
 
 template <typename T>
 class Matrix;
@@ -32,7 +34,8 @@ public:
 	Matrix<T> operator+ (const T& other) const noexcept;
 	Matrix<T> operator- (const T& other) const noexcept;
 	Matrix<T> operator* (const T& other) const noexcept;
-	
+	Matrix<T> operator/ (const T& other) const noexcept;
+
 	void operator+= (const Matrix<T>& other) noexcept;
 	void operator-= (const Matrix<T>& other) noexcept;
 
@@ -46,11 +49,19 @@ public:
 
 	friend std::ostream& operator<< <>(std::ostream& os, const Matrix<T>& data);
 	friend Matrix<T>;
-};
 
-#include "Matrix.inl"
+	static Matrix<float32> TranslationMatrix(const Vector3f& trans) noexcept;
+
+	static Matrix<float32> RotationMatrixX(const radians& theta) noexcept;
+	static Matrix<float32> RotationMatrixY(const radians& theta) noexcept;
+	static Matrix<float32> RotationMatrixZ(const radians& theta) noexcept;
+	
+	static Matrix<float32> RescaleMatrix(const Vector3f& rescale) noexcept;
+};
 
 using Matrixi = Matrix<int32>;
 using Matrixf = Matrix<float32>;
 using Matrixd = Matrix<float64>;
 using Matrixui = Matrix<uint32>;
+
+#include "Matrix.inl"

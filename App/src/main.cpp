@@ -35,13 +35,9 @@ int main() {
 	std::cout << matrix1 << std::endl;
 	//std::cout << matrix2 << std::endl;
 	std::cout << identityMatrix << std::endl;
-
-
+	const float radians = 90.0f * Maths::DEGREES_TO_RADIANS;
 
 	PROFILER_END_TASK_MILLISECONDS("matrix", "");
-
-
-
 
 	return 0;
 }

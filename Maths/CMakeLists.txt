@@ -4,11 +4,13 @@ include/Vector3.h
 include/Vector3.inl 
 include/Matrix.inl 
 include/Matrix.h
+include/Units.h
 )
 
 set(MATHS_SOURCES 
 src/Vector3.cpp 
 src/Matrix.cpp 
+src/Units.cpp 
 )
 
 add_library(Maths OBJECT 

@@ -136,6 +136,11 @@ inline bool Vector3<T>::operator==(const Vector3<T>& _right) const noexcept
 	return x == _right.x && y == _right.y && z == _right.z;
 }
 
+template<typename T>
+inline T Vector3<T>::operator[](const int8& it) const noexcept
+{
+	return it == 0 ? x : it == 1 ? y : z;
+}
 
 template<typename T>
 inline float32 Vector3<T>::Lenght() const noexcept

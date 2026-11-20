@@ -10,9 +10,9 @@ add_subdirectory(Debug)
 add_subdirectory(Utils)
 add_subdirectory(Core)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-
-add_library(UtilsLib STATIC
+add_library(UtilsLib SHARED
 $<TARGET_OBJECTS:Core>
 $<TARGET_OBJECTS:Maths>
 $<TARGET_OBJECTS:Debug>
@@ -28,6 +28,7 @@ Utils
 
 add_subdirectory(App)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT App)
+
 
 
 

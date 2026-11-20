@@ -118,6 +118,25 @@ inline Matrix<T> Matrix<T>::operator* (const T& other) const noexcept {
 	return matrix;
 }
 
+template<typename T>
+inline Matrix<T> Matrix<T>::operator/(const T& other) const noexcept
+{
+	if (other == 0) {
+#ifdef _DEBUG
+		std::cerr << "can't divide by 0" << std::endl;
+#endif
+		return (*this);
+	}
+	
+	Matrix<T> matrix(m_row, m_col);
+	for (int16 row = 0; row < m_row; row++) {
+		for (int16 col = 0; col < m_col; col++) {
+			matrix[row][col] = m_matrix[row][col] / other;
+		}
+	}
+	return matrix;
+}
+
 
 template<typename T>
 inline void Matrix<T>::operator+=(const Matrix<T>& other) noexcept
@@ -220,4 +239,92 @@ inline Matrix<T> Matrix<T>::GetInvert() const noexcept
 #endif
 		return (*this);
 	}
+}
+
+
+template<typename T>
+inline Matrixf Matrix<T>::TranslationMatrix(const Vector3f& trans) noexcept
+{
+	Matrixf matrix(4, 4);
+	for (int8 row = 0; row < 4; row++) {
+		matrix[row][3] = trans[row];
+		
+		matrix[row][row] = 1.0f;
+	}
+	return matrix;
+}
+
+template<typename T>
+inline Matrixf Matrix<T>::RotationMatrixX(const float32& theta) noexcept
+{
+	const float32 sin = std::sin(theta);
+	const float32 cos = std::cos(theta);
+
+	Matrixf matrix(4, 4);
+	matrix[1][1] = cos;
+	matrix[1][2] = -sin;
+	matrix[2][1] = sin;
+	matrix[2][2] = cos;
+
+	for (int8 row = 0; row < 4; row++) {
+		if (matrix[row][row] == 0.0f) {
+			matrix[row][row] = 1.0f;
+		}
+	}
+
+	return matrix;
+}
+
+template<typename T>
+inline Matrixf Matrix<T>::RotationMatrixY(const float32& theta) noexcept
+{
+	const float32 sin = std::sin(theta);
+	const float32 cos = std::cos(theta);
+
+	Matrixf matrix(4, 4);
+	matrix[0][0] = cos;
+	matrix[0][2] = sin;
+	matrix[2][0] = -sin;
+	matrix[2][2] = cos;
+
+	for (int8 row = 0; row < 4; row++) {
+		if (matrix[row][row] == 0.0f) {
+			matrix[row][row] = 1.0f;
+		}
+	}
+	return matrix;
+}
+
+template<typename T>
+inline Matrixf Matrix<T>::RotationMatrixZ(const float32& theta) noexcept
+{
+	const float32 sin = std::sin(theta);
+	const float32 cos = std::cos(theta);
+
+	Matrixf matrix(4, 4);
+	matrix[0][0] = cos;
+	matrix[0][1] = -sin;
+	matrix[1][0] = sin;
+	matrix[1][1] = cos;
+
+	for (int8 row = 0; row < 4; row++) {
+		if (matrix[row][row] == 0.0f) {
+			matrix[row][row] = 1.0f;
+		}
+	}
+	return matrix;
+}
+
+template<typename T>
+inline Matrixf Matrix<T>::RescaleMatrix(const Vector3f& rescale) noexcept
+{
+	Matrixf matrix(4, 4);
+	for (int8 row = 0; row < 4; row++) {
+		if (row != 3) {
+			matrix[row][row] = rescale[row];
+		}
+		else
+			matrix[row][row] = 1.0f;
+	}
+	return matrix;
 }
