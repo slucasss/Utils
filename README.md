@@ -4,7 +4,6 @@ A library full of usefull things
 ## Features
 ### Debug
 - Profiler
-- 
 ### Maths
 - Vector3
 - Matrix
